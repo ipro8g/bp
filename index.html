@@ -1,0 +1,193 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battlefield Pacific - HTML5 Free Multiplayer Online Game</title>
+    <meta name="description" content="Play Battleships now, a Free Multiplayer Online HTML5 Game. Play with or meet new        friends anywhere, no downloads with challenges." />
+<meta name="keywords" content="Play, Battleships, now, Free, Multiplayer, Online, HTML5, Game, friends, anywhere, no, downloads, items, modes, challenges, 2d shooter, advanced, vs, ai, computer, players, World War Two, japanese imperial navy, browser, custom, avatars, ui, theme, interface, gunbound, gumbao, cash, gold, fast, gp, exp, f2p, free to play, free offers, torpedo, us navy, gato class submarine, i9 class submarine, ukuru class frigate, cannon class frigate, akizuki class destroyer, fletcher class destroyer, takao class cruiser, baltimore class cruiser, yamato class battleship, north carolina class battleship, shokaku Class carrier, essex class carrier, game, games, NO cheaters, NO download, NO hackers, NO installation, private source, public game, shooter, turn based, unique, zero exploits, america, peru, force, history, zero" />
+	<link rel="icon" href="img/web_icon.svg" type="image/icon type">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+<div id='simpleModal' class='modal'>
+
+    <div class='modal-content'>
+
+        <div class='modal-header'>
+
+            <span class='closeBtn'>&times;</span>
+            
+        </div>
+        
+        
+
+        <div class='modal-body'><center>
+        
+            <div class="navy_container" id="navy_container2">
+            
+                <div>
+             
+                    <p id="user3_name_modal"></p> <br>
+
+                    <img src="" id="img3"></img> <br>
+                
+                    <button class="btn_name" id="accept_btn" onclick="accept_duel()">Accept</button>
+             
+                </div>
+            
+            </div>
+        
+             <div class="navy_container" id="navy_container1">
+             
+                <div>
+                
+                    <h5>Imperial Navy</h5>
+        
+                    <img src="img/jpnavy.png" class="img_navy" id="img1" onclick="use_jp()"></img>
+                
+                    <p id="user1_name_modal"></p>
+                
+                </div>
+                
+                <div>
+                
+                    <h3>VS</h3> <br>
+                
+                    <button class="btn_name" onclick="req_duel()" id="btn_go">GO</button>
+                
+                </div>
+                
+                <div>
+                
+                    <h5>US Navy</h5>
+        
+                    </img><img src="img/usnavy.png" class="img_navy" id="img2" onclick="use_us()"></img>
+                
+                    <p id="user2_name_modal"></p>
+                
+                </div>
+
+             </div>
+    
+             <div id="ani_box"></div>
+
+        </div>
+
+    </div>
+</div>
+
+<div id="vertical_container">
+
+    <div id="console_container">
+
+        <div id="console_user" class="console_user"><br><br></div>
+        
+        <div id="chat_box">
+        
+            <input id="chat_text" type="text" required></input>
+            
+            <div style="display:flex;flex-direction:row;margin:10px;">
+        
+                <button id="btn_chat" onclick="chat()">send</button>&nbsp;
+                
+                <input type="checkbox" id="chat_check" name="" checked="checked" style="cursor:pointer;">&nbsp;
+                
+                <b>all</b>&nbsp;
+                
+                <img src="img/pacman.png" width="20px" height="20px"></img>
+            
+            </div>
+        
+        </div>
+        
+    </div>
+    
+	<div id="top_container">
+	
+		<canvas id="canvas"  width="780px" height="368px" style="box-shadow:0 0 40px 10px DarkCyan;" class="canvas1">
+        </canvas>
+        
+		<div id="shape_section">
+		
+		    <div class="col1" id="traffic_light">
+		    
+		        <p id="tl_user" class="tl">tl user</p>
+		        
+		        <div id="top_light"></div>
+		        
+		        <p id="tl_clock" class="tl_clock">15</p>
+		        
+		        <div id="down_light"></div>
+		        
+		        <p id="tl_rival" class="tl">tl rival</p>
+		        
+		    </div>
+		
+		    <div class="col1" id="shape_section_first">
+                <img src="img/one_g.png" class="green_shapes_a" onclick="defineVessel(0, this)">
+                <img src="img/two_g.png" class="green_shapes_b" onclick="defineVessel(1, this)">
+                <img src="img/three_g.png" class="green_shapes_c" onclick="defineVessel(2, this)">
+                <img src="img/four_g.png" class="green_shapes_d" onclick="defineVessel(3, this)">
+                <img src="img/five_g.png" class="green_shapes_e" onclick="defineVessel(4, this)">
+                <img src="img/six_g.png" class="green_shapes_f" onclick="defineVessel(5, this)"> 
+                <img src="" class="" onclick="" id="buton_one">
+            </div>
+            
+            <div class="col1" id="shape_section_second" style="text-align:center;">
+                
+                <button class="btn_name" onclick="self_game()">Start GAME against Computer</button>
+                
+                <center><p style="color:white;font-weight:bold;">or Click <br><img src="img/ss.png" width="50px" height="50px"></img><br> Below</p>
+                
+                <p style="color:white;font-weight:bold;"> <p style="color:white;font-weight:bold;">to Duel other Players</p>
+            
+            </div>
+		
+		</div>
+	
+	</div>
+	
+    
+    
+    <div id="horizontal_container">
+	
+		<div id="monitor"></div>
+    
+    	<div id="msg_box">
+    	
+    	    <br>
+    	
+    	    <h3 id="h1"></h3><button id="btn_name" onclick="change_name()">change name</button>
+    	    
+    	    <br><br>
+    	    
+    	    <h4 id="h2"></h4>
+    	
+    	    <div id="dom_users_list"></div>
+    	
+    	</div>
+	
+	</div>
+
+</div>
+
+
+<script src="./js/buffer.js"></script>
+<script src="./js/stg2.js"></script>
+<script src="./js/stg3.js"></script>
+<script src="./js/main.js"></script>
+<script src="./js/pvp1.js"></script>
+<script src="./js/pvp2.js"></script>
+
+<div id="pure" class=""></div>
+
+<div class="notify" id="notifyType"></div>
+
+</body>
+
+</html>
